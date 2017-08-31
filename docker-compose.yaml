@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  jira:
+    image: openkunlun/jira
+    container_name: jira
+    ports:
+      - '3080:8080'
+  postgresql:
+    image: postgres
+    container_name: jira_postgres
+    ports:
+      - '5433:5432'
+    environment:
+      - 'POSTGRES_USER=jiradb'
+      - 'POSTGRES_PASSWORD=pswd4jira'
+      - 'POSTGRES_DB=jira'
+      - 'POSTGRES_ENCODING=UTF8'
+      - 'POSTGRES_COLLATE=C'
+      - 'POSTGRES_COLLATE_TYPE=C'
