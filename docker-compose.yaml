@@ -2,7 +2,7 @@ version: '2'
 
 services:
   jira:
-    image: openkunlun/jira
+    image: openkunlun/docker-jira:v1
     container_name: jira
     ports:
       - '3080:8080'
