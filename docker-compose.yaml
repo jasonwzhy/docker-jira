@@ -1,4 +1,4 @@
-version: '2'
+version: '1'
 
 services:
   jira:
@@ -6,9 +6,11 @@ services:
     container_name: jira
     ports:
       - '3080:8080'
+    volumes:
+      - /opt/atlassian/jira/:/opt/atlassian/jira/
   postgresql:
     image: postgres
-    container_name: jira_postgres
+    container_name: wiki_postgres
     ports:
       - '5433:5432'
     environment:
@@ -18,3 +20,5 @@ services:
       - 'POSTGRES_ENCODING=UTF8'
       - 'POSTGRES_COLLATE=C'
       - 'POSTGRES_COLLATE_TYPE=C'
+    volumes:
+      - /root/docker-volume/wiki_postgres/data/:/var/lib/postgresql/data/
