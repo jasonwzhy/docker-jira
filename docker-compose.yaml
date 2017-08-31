@@ -12,9 +12,9 @@ services:
     ports:
       - '5433:5432'
     environment:
-      - 'POSTGRES_USER=jiradb'
-      - 'POSTGRES_PASSWORD=pswd4jira'
-      - 'POSTGRES_DB=jira'
+      - 'POSTGRES_USER=openkunlun'
+      - 'POSTGRES_PASSWORD=#a1a4*6DK'
+      - 'POSTGRES_DB=kunlunjira'
       - 'POSTGRES_ENCODING=UTF8'
       - 'POSTGRES_COLLATE=C'
       - 'POSTGRES_COLLATE_TYPE=C'
