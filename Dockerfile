@@ -17,6 +17,8 @@ WORKDIR /tmp
 COPY response.varfile /tmp/
 
 RUN mkdir -p "/opt/atlassian/jira"
+RUN chmod -R 700 "/opt/atlassian/"
+RUN chmod -R 700 "/opt/atlassian/jira"
 RUN mkdir -p "/usr/local/JIRA"
 
 RUN wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-6.4.11-x64.bin
@@ -27,8 +29,7 @@ RUN /tmp/atlassian-jira-6.4.11-x64.bin -q -varfile /tmp/response.varfile
 # RUN rm /tmp/response.varfile
 
 EXPOSE 8080
-VOLUME /opt/atlassian
-WORKDIR /opt/atlassian/jira/bin/
-RUN cat /opt/atlassian/jira/bin/start-jira.sh 
+VOLUME ["/opt/atlassian","/opt/atlassian/jira"]
+# RUN cat /opt/atlassian/jira/bin/start-jira.sh 
 RUN chmod 775 /opt/atlassian/jira/bin/start-jira.sh 
-CMD ["start-jira.sh","-fg"]
+CMD ["/opt/atlassian/jira/bin/start-jira.sh ","-fg"]
