@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-MAINTAINER lowmem0ry  <18817814702@163.com>
+MAINTAINER OPENKUNLUN
 
 #VOLUME ["/jira/data/attachments"]
 #VOLUME ["/jira/export"]
@@ -25,3 +25,4 @@ EXPOSE 8080
 
 CMD /opt/atlassian/jira/bin/start-jira.sh -fg
 
+VOLUME /opt/atlassian/jira

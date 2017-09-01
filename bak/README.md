@@ -1,28 +1,15 @@
-# 基于docker 的jira 安装及破解
+# docker 的jira install
 1. 下载docker-compose.yaml文件
-
-```
-wget https://raw.githubusercontent.com/joker8023/jira/master/docker-compose.yaml
-```
 2. 启动docker-compose
-
-
 ```
 sudo docker-compose up -d
 ```
-
-3. 破解 jira
-
-[破解文件](http://pan.baidu.com/s/1dEXwA21) 密码：d10q
-破解文件和中文包都在里面 如果失效请发邮件到18817814702@163.com提醒
-
+3. crack jira
 3.1 进入jira
 ```
 sudo docker exec -it jira /bin/sh
 ```
 3.2 备份文件
-
-
 ```
 mv /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/atlassian-extras-2.2.2.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/atlassian-extras-2.2.2.jar.bak
 ```
@@ -31,15 +18,15 @@ atlassian-universal-plugin-manager-plugin的版本可能不一致,按照实际�
  mv /opt/atlassian/jira/atlassian-jira/WEB-INF/atlassian-bundled-plugins/atlassian-universal-plugin-manager-plugin-2.19.1.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/atlassian-bundled-plugins/atlassian-universal-plugin-manager-plugin-2.19.1.jar.bak
 
 ```
-3.3 将破解文件复制到相应位置
-我的破解文件在 /home/gench/下
+3.3 将crack文件复制到相应位置
+我的crack文件在 /home/xxx/下
 
 ```
-sudo docker cp /home/gench/atlassian-extras-2.2.2.jar jira:/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/atlassian-extras-2.2.2.jar
+sudo docker cp /home/xxx/atlassian-extras-2.2.2.jar jira:/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/atlassian-extras-2.2.2.jar
 ```
-破解文件atlassian-universal-plugin-manager-plugin 可能版本不一样，改名字成你自己的版本名字然后复制
+crack文件atlassian-universal-plugin-manager-plugin 可能版本不一样，改名字成你自己的版本名字然后复制
 ```
-docker cp /home/gench/atlassian-universal-plugin-manager-plugin-2.19.1.jar jira:/opt/atlassian/jira/atlassian-jira/WEB-INF/atlassian-bundled-plugins/atlassian-universal-plugin-manager-plugin-2.19.1.jar
+docker cp /home/xxx/atlassian-universal-plugin-manager-plugin-2.19.1.jar jira:/opt/atlassian/jira/atlassian-jira/WEB-INF/atlassian-bundled-plugins/atlassian-universal-plugin-manager-plugin-2.19.1.jar
 ```
 3.4 重启docker
 

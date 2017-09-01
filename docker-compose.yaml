@@ -2,23 +2,19 @@ version: '2'
 
 services:
   jira:
-    image: openkunlun/docker-jira:v1
+    image: lowmem0ry/jira
     container_name: jira
     ports:
       - '3080:8080'
-    volumes:
-      - /root/docker-volume/docker-jira/:/opt/atlassian/jira/
-  # postgresql:
-  #   image: postgres
-  #   container_name: wiki_postgres
-  #   ports:
-  #     - '5434:5432'
-  #   environment:
-  #     - 'POSTGRES_USER=openkunlun'
-  #     - 'POSTGRES_PASSWORD=#a1a4*6DK'
-  #     - 'POSTGRES_DB=kunlunjira'
-  #     - 'POSTGRES_ENCODING=UTF8'
-  #     - 'POSTGRES_COLLATE=C'
-  #     - 'POSTGRES_COLLATE_TYPE=C'
-  #   volumes:
-  #     - /root/docker-volume/wiki_postgres/data/:/var/lib/postgresql/data/
+  postgresql:
+    image: postgres
+    container_name: jira_postgres
+    ports:
+      - '5433:5432'
+    environment:
+      - 'POSTGRES_USER=jiradb'
+      - 'POSTGRES_PASSWORD=pswd4jira'
+      - 'POSTGRES_DB=jira'
+      - 'POSTGRES_ENCODING=UTF8'
+      - 'POSTGRES_COLLATE=C'
+      - 'POSTGRES_COLLATE_TYPE=C'
