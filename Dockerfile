@@ -32,4 +32,5 @@ EXPOSE 8080
 VOLUME ["/opt/atlassian","/opt/atlassian/jira"]
 # RUN cat /opt/atlassian/jira/bin/start-jira.sh 
 RUN chmod 775 /opt/atlassian/jira/bin/start-jira.sh 
-CMD ["/opt/atlassian/jira/bin/start-jira.sh ","-fg"]
+ENTRYPOINT ["/opt/atlassian/jira/bin/start-jira.sh"]
+CMD ["-fg"]
