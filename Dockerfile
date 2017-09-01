@@ -29,4 +29,5 @@ RUN /tmp/atlassian-jira-6.4.11-x64.bin -q -varfile /tmp/response.varfile
 EXPOSE 8080
 VOLUME /opt/atlassian/jira
 RUN cat /opt/atlassian/jira/bin/start-jira.sh 
-# CMD /opt/atlassian/jira/bin/start-jira.sh -fg
+RUN chmod 775 /opt/atlassian/jira/bin/start-jira.sh 
+CMD /opt/atlassian/jira/bin/start-jira.sh -fg
