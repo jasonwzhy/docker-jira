@@ -18,7 +18,6 @@ COPY response.varfile /tmp/
 
 RUN mkdir -p "/opt/atlassian/jira"
 RUN mkdir -p "/usr/local/JIRA"
-RUN mkdir "/jira"
 
 RUN wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-6.4.11-x64.bin
 RUN chmod 700 atlassian-jira-6.4.11-x64.bin
