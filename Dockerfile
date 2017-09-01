@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-MAINTAINER lowmem0ry  <18817814702@163.com>
+MAINTAINER OPENKUNLUN
 
 #VOLUME ["/jira/data/attachments"]
 #VOLUME ["/jira/export"]
@@ -11,17 +11,23 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install wget -y
 
+USER root:root
+
 WORKDIR /tmp
 COPY response.varfile /tmp/
+
+RUN mkdir -p "/opt/atlassian/jira" \
+    mkdir -p "/usr/local/JIRA" \
+    mkdir -P '/jira'
 
 RUN wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-6.4.11-x64.bin
 RUN chmod 700 atlassian-jira-6.4.11-x64.bin
 RUN mkdir /jira
-RUN /tmp/atlassian-jira-6.4.11-x64.bin -q -varfile response.varfile
-RUN rm /tmp/atlassian-jira-6.4.11-x64.bin
-RUN rm /tmp/response.varfile
+RUN /tmp/atlassian-jira-6.4.11-x64.bin -q -varfile /tmp/response.varfile
+# RUN rm /tmp/atlassian-jira-6.4.11-x64.bin
+# RUN rm /tmp/response.varfile
 
 EXPOSE 8080
+VOLUME /opt/atlassian/jira
 
 CMD /opt/atlassian/jira/bin/start-jira.sh -fg
-

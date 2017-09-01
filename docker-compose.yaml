@@ -2,10 +2,12 @@ version: '2'
 
 services:
   jira:
-    image: lowmem0ry/jira
+    image: openkunlun/docker-jira:v1
     container_name: jira
     ports:
       - '3080:8080'
+    volumes:
+      - /root/docker-volume/docker-jira/:/opt/atlassian/jira/
   # postgresql:
   #   image: postgres
   #   container_name: jira_postgres
