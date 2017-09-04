@@ -8,7 +8,7 @@ ENV JIRA_VERSION  7.4.3
 # Use the default unprivileged account. This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
 # here we only ever run one process anyway.
-USER daemon:daemon
+USER root:root
 
 # Install Atlassian JIRA and helper tools and setup initial home
 # directory structure.
