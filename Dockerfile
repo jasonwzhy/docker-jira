@@ -3,12 +3,7 @@ FROM openjdk:8
 # Configuration variables.
 ENV JIRA_HOME     /var/atlassian/jira
 ENV JIRA_INSTALL  /opt/atlassian/jira
-ENV JIRA_VERSION  7.4.3
-
-# Use the default unprivileged account. This could be considered bad practice
-# on systems where multiple processes end up being executed by 'daemon' but
-# here we only ever run one process anyway.
-USER daemon:daemon
+ENV JIRA_VERSION  7.4.4
 
 # Install Atlassian JIRA and helper tools and setup initial home
 # directory structure.
@@ -39,7 +34,10 @@ RUN set -x \
     && echo -e                 "\njira.home=$JIRA_HOME" >> "${JIRA_INSTALL}/atlassian-jira/WEB-INF/classes/jira-application.properties" \
     && touch -d "@0"           "${JIRA_INSTALL}/conf/server.xml"
 
-
+# Use the default unprivileged account. This could be considered bad practice
+# on systems where multiple processes end up being executed by 'daemon' but
+# here we only ever run one process anyway.
+USER daemon:daemon
 
 # Expose default HTTP connector port.
 EXPOSE 8080
