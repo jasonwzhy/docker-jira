@@ -14,7 +14,7 @@ sudo docker-compose up -d
 3. 破解 jira
 
 [破解文件](http://pan.baidu.com/s/1dEXwA21) 密码：d10q
-破解文件和中文包都在里面 如果失效请发邮件到18817814702@163.com提醒
+破解文件和中文包都在里面 
 
 3.1 进入jira
 ```
